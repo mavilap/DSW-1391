@@ -7,8 +7,8 @@
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Open fase3.html",
-            "file": "c:\\Users\\mario.avila\\Documents\\GitHub\\DSW-1391\\javascript\\fase3.html"
+            "name": "Open preguntas.html",
+            "file": "c:\\Users\\mario.avila\\Documents\\GitHub\\DSW-1391\\javascript\\preguntas.html"
         }
     ]
 }

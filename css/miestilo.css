@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    text-align: center;
+    display: grid;
+    grid-template-areas: 
+    'A A A A'
+    'B B B B'
+    'C D D D'
+    'E E E E'
+    ;
+}
+header{
+  background-color: darkgray;
+  grid-area: A;
+}
+nav{
+    background-color: cadetblue;
+    grid-area: B;
+}
+
+aside{
+    background-color: aquamarine;
+    grid-area: C;
+}
+main{
+    background-color: darkkhaki;
+    grid-area: D;
+}
+footer{
+ background-color: gray;
+ grid-area: E;
+}
+
+.menu-h{
+    display: flex;
+    justify-content: center;
+}
+
+.menu-h a {
+    text-decoration: none;
+    background-color: black;
+    color:aliceblue;
+    padding: 10px 80px;
+    
+    margin: 2px;
+
+}
+.menu-h> li, .menu-v li{
+    list-style:none ;
+}
+
+.menu-v a{
+    text-decoration: none;
+    background-color: black;
+    color:aliceblue; 
+    padding: 10px 50px;
+    display: block;
+    margin: 5px;
+}

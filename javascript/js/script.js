@@ -11,11 +11,10 @@ function procesarRespuestas(){
             alert ('Favor responder todas las preguntas');
             return false;
         } else {
-            if (myForm["" + i].value === respuestasCorrectas[i - 1])
+            if (myForm["r" + i].value === respuestasCorrectas[i - 1])
                puntos ++
             
         }
-        
     }
 
     let resultado = document.getElementById("resultado");
