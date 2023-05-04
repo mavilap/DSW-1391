@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Consulta API pública con async/await</title>
+    <style>
+        *{text-align: center;}
+    </style>
+</head>
+<body>
+	<h1>Consulta de usuarios de GitHub</h1>
+	<p>Introduce el nombre de un usuario:</p>
+	<input type="text" id="usuario">
+	<button onclick="consultarUsuario()">Consultar</button>
+	<div id="resultado"></div>
+
+
+	<script>
+		async function consultarUsuario() {
+			const usuario = document.getElementById("usuario").value;
+
+			try {
+				const response = await fetch(`https://api.github.com/users/${usuario}`);
+				const data = await response.json();
+				const nombre = data.name || data.login;
+				const seguidores = data.followers;
+				const repositorios = data.public_repos;
+                const avatar = data.avatar_url;
+				document.getElementById("resultado").innerHTML = `
+					<h2>${nombre}</h2>
+					<p>Seguidores: ${seguidores}</p>
+					<p>Repositorios: ${repositorios}</p>
+                    <img src="${avatar}" alt="avatar">
+				`;
+			} catch (error) {
+				console.log(error);
+				document.getElementById("resultado").innerHTML = "Ha ocurrido un error.";
+			}
+		}
+	</script>
+</body>
+</html>
