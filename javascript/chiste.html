@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiste</title>
+</head>
+<body>
+    <h1>Esta página consme una API  que genera un chiste aleatorio</h1>
+    <input type="button" value="Consigueme un chiste" onclick="getChise()">
+    <br>
+    <div id="chiste"></div>
+<script>
+async function getChise() {
+    const chiste = document.getElementById('chiste');
+    const url ='https://api.chucknorris.io/jokes/random';
+    const respuesta = await fetch(url);
+    const data = await respuesta.json();
+
+    chiste.innerHTML= data.value;
+    const category = 'programming'; // Cambia la categoría según tu preferencia
+    //otroChiste(category);
+}
+
+ const otroChiste = async (category) => {
+    const response = await fetch(`https://official-joke-api.appspot.com/jokes/${category}/random`);
+    const  data = await response.json();
+    console.log(data[0].setup); // Imprime la pregunta del chiste en la consola
+    console.log(data[0].punchline); // Imprime la respuesta del chiste en la consola
+}
+
+const category = 'programming'; // Cambia la categoría según tu preferencia
+
+fetch(`https://official-joke-api.appspot.com/jokes/${category}/random`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data[0].setup); // Imprime la pregunta del chiste en la consola
+    console.log(data[0].punchline); // Imprime la respuesta del chiste en la consola
+  })
+  .catch(error => console.error(error));
+
+</script>
+    
+</body>
+</html>

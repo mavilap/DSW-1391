@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Esta página  consume la API de github</h2>
+    <br>
+    <label for="usuario">Usuario gitHub:</label>
+    <input type="text" name="usuario" id="usuario">
+
+    <br><br>
+    <input type="button" value="Consultar" onclick="consultarAPI()">
+    <br>
+    <div id="resultado"></div>
+
+<script>
+async function consultarAPI() {
+    const usuario = document.getElementById('usuario');
+    const resultado = document.getElementById('resultado');
+
+    let url = 'https://api.github.com/users/'+usuario.value;
+    const respuesta = await fetch(url);
+    const data = await respuesta.json();
+    if (data.login) {
+        resultado.innerHTML = ` <h3>Nombre: ${data.login}</h3>
+        <h5>Repositorios: ${data.public_repos}</h5>
+        <h5>Seguidores: ${data.followers}</h5>
+
+        <img src="${data.avatar_url}" alt=""> `;
+    } else {
+        resultado.innerHTML = ` <h3>No existe: ${usuario.value}</h3>
+        `;
+    }
+    
+}
+</script>
+</body>
+</html>

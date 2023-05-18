@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleatorio</title>
+</head>
+<body>
+    <h1>Aleatorio</h1>
+    <input type="button" value="Generar Numero Aleatorio" onclick="generar()">
+    <div id="salida"></div>
+    <script>
+        const salida = document.getElementById('salida');
+        const generar= () =>{
+
+            let aleator = aleatorio(3);
+            salida.innerHTML=` <h1>El número generado es: ${aleator} </h1> `;
+
+        }
+
+        function aleatorio(param){
+            let parametro = parseInt(param);
+            let random = Math.floor(Math.random() * parametro) + 1;
+            return random;
+        }
+    </script>
+</body>
+</html>

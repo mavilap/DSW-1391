@@ -1,0 +1,44 @@
+<script>
+    // Definimos la clase padre
+class Animal {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+
+  comer() {
+    console.log(`${this.nombre} está comiendo.`);
+  }
+
+  dormir() {
+    console.log(`${this.nombre} está durmiendo.`);
+  }
+}
+
+// Definimos la clase hija
+class Perro extends Animal {
+  constructor(nombre, raza) {
+    super(nombre);
+    this.raza = raza;
+  }
+
+  ladrar() {
+    console.log(`${this.nombre} está ladrando.`);
+  }
+}
+
+// Creamos un objeto de la clase Animal
+const animal1 = new Animal('Animal');
+
+// Creamos un objeto de la clase Perro
+const perro1 = new Perro('Neron', 'Labrador');
+
+// Accedemos a los métodos de la clase Animal
+animal1.comer(); // imprime "Animal está comiendo."
+animal1.dormir(); // imprime "Animal está durmiendo."
+
+// Accedemos a los métodos de la clase Perro
+perro1.comer(); // imprime "Toby está comiendo."
+perro1.dormir(); // imprime "Toby está durmiendo."
+perro1.ladrar(); // imprime "Toby está ladrando."
+
+</script>
